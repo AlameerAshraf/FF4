@@ -8,7 +8,6 @@ var path = require('path');
 var app = express();
 var localtunnel = require('localtunnel');
 var BodyParser = require('body-parser');
-var fileUpload = require('express-fileupload');
 
 var client = mongodb.MongoClient; 
 var dbaccessurl = "mongodb://127.0.0.1:27017/ff4"; 
