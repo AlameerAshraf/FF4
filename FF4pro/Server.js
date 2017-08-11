@@ -2,12 +2,11 @@ var express = require('express');
 var router = express.Router();
 var mongodb = require('mongodb');
 var url = require('url');
-var download = require('download-file');
-var session = require('express-session');
 var path = require('path');
 var app = express();
 var localtunnel = require('localtunnel');
-var BodyParser = require('body-parser');
+var BodyParser = require('body-parser');    
+var MailHandler = require('./self_modules/SendMail.js');
 
 var client = mongodb.MongoClient; 
 var dbaccessurl = "mongodb://127.0.0.1:27017/ff4"; 
@@ -17,8 +16,8 @@ app.set("view engine", "ejs");
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/css'));
-app.use(fileUpload());
-app.use(session({ secret: 'ssshhhhh' }));
+//app.use(fileUpload());
+//app.use(session({ secret: 'ssshhhhh' }));
 
 
 
@@ -36,6 +35,21 @@ client.connect(dbaccessurl, function (err, db) {
 
         app.get("/",function(req,res){
            res.render(__dirname + "/Pages/index.ejs");
+        })
+
+        app.post("/SendMail",(req,res) => {
+            console.log(req.body.data);  
+            var name = req.body.data.name;
+            var email = req.body.data.email;
+            var subject = req.body.data.title;
+            var message = req.body.data.message;
+
+            MailHandler.NotifyViaMail(name,email,subject,message);
+        })
+
+        app.get("/test", (req , res) => {
+            console.log("As");
+            MailHandler.Print();
         })
     }
 }); 
