@@ -5,11 +5,11 @@ var url = require('url');
 var path = require('path');
 var app = express();
 var localtunnel = require('localtunnel');
-var BodyParser = require('body-parser');    
+var BodyParser = require('body-parser');
 var MailHandler = require('./self_modules/SendMail.js');
 
-var client = mongodb.MongoClient; 
-var dbaccessurl = "mongodb://127.0.0.1:27017/ff4"; 
+var client = mongodb.MongoClient;
+var dbaccessurl = "mongodb://127.0.0.1:27017/ff4";
 
 
 app.set("view engine", "ejs");
@@ -23,36 +23,45 @@ app.use(express.static(__dirname + '/css'));
 
 
 client.connect(dbaccessurl, function (err, db) {
-    if (err){
+    if (err) {
         console.log("Error Happend in db");
     }
     else {
-        var tunnel = localtunnel(1337, function (err, tunnel) {
-            if (!err) {
-                console.log(tunnel.url);
+        // var tunnel = localtunnel(1337, function (err, tunnel) {
+        //     if (!err) {
+        //         console.log(tunnel.url);
+        //     }
+        // });
+
+        app.get("/", function (req, res) {
+            res.render(__dirname + "/Pages/index.ejs");
+        })
+
+        app.post("/Contactus", (req, res) => {
+            var maildetailstransfer = {
+                Receiver: "Clients Reviwes",
+                MailPurpose: "are an admin in Integrato . So Please give a full attention to the mail and notify the rest of team !",
+                Sender: req.body.data.name,
+                FirstMessage: "This Message is sent from client :" + " " + req.body.data.name,
+                ButtonDetection: false,
+                ButtonMessage: " ",
+                Link: "client mail :" + req.body.data.email,
+                LinkMessage: req.body.data.message,
+                FooterMessage: "Please give full attention to this message and try to solve the client problem as possible as you can , and tell other team about this message , client phone number " +req.body.data.phone ,
+                name : req.body.data.name
             }
-        });
 
-        app.get("/",function(req,res){
-           res.render(__dirname + "/Pages/index.ejs");
+            MailHandler.NotifyViaMail(maildetailstransfer);
         })
 
-        app.post("/SendMail",(req,res) => {
-            console.log(req.body.data);  
-            var name = req.body.data.name;
-            var email = req.body.data.email;
-            var subject = req.body.data.title;
-            var message = req.body.data.message;
-
-            MailHandler.NotifyViaMail(name,email,subject,message);
-        })
-
-        app.get("/test", (req , res) => {
-            console.log("As");
-            MailHandler.Print();
+        app.get("/test", (req, res) => {
+            MailHandler.test();
+            res.render(__dirname + "/Pages/Templates/Email.ejs", {
+                Username: "Alameer"
+            })
         })
     }
-}); 
+});
 
 
 app.use(express.static("./Static"));

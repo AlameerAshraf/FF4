@@ -6,7 +6,7 @@ $(function () {
             {
                 "name": $("[name='Name']").val(),
                 "email": $("[name='Email']").val(),
-                "title": $("[name='Phone']").val(),
+                "phone": $("[name='Phone']").val(),
                 "message": $("[name='message']").val()
             }
         };
@@ -15,7 +15,7 @@ $(function () {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:1337/SendMail",
+            url: "http://localhost:1337/Contactus",
             // contentType: false,
             // processData: false,
             data: data,
