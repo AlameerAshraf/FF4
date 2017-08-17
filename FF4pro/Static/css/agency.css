@@ -168,6 +168,10 @@ fieldset[disabled] .btn-xl.active {
   color: white;
   font-size: 12px;
 }
+
+.navbar-internal {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .navbar-custom .navbar-toggle:hover,
 .navbar-custom .navbar-toggle:focus {
   background-color: #fed136;

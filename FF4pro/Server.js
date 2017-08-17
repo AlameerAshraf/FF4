@@ -27,13 +27,13 @@ client.connect(dbaccessurl, function (err, db) {
         console.log("Error Happend in db");
     }
     else {
-        // var tunnel = localtunnel(1337, function (err, tunnel) {
-        //     if (!err) {
-        //         console.log(tunnel.url);
-        //     }
-        // });
+        var tunnel = localtunnel(1337, function (err, tunnel) {
+            if (!err) {
+                console.log(tunnel.url);
+            }
+        });
 
-        app.get("/", function (req, res) {
+        app.get(["/","/Index","/Home"], function (req, res) {
             res.render(__dirname + "/Pages/index.ejs");
         })
 
@@ -47,11 +47,15 @@ client.connect(dbaccessurl, function (err, db) {
                 ButtonMessage: " ",
                 Link: "client mail :" + req.body.data.email,
                 LinkMessage: req.body.data.message,
-                FooterMessage: "Please give full attention to this message and try to solve the client problem as possible as you can , and tell other team about this message , client phone number " +req.body.data.phone ,
-                name : req.body.data.name
+                FooterMessage: "Please give full attention to this message and try to solve the client problem as possible as you can , and tell other team about this message , client phone number " + req.body.data.phone,
+                name: req.body.data.name
             }
 
             MailHandler.NotifyViaMail(maildetailstransfer);
+        })
+
+        app.get("/ServiceRequest", (req, res) => {
+            res.render(__dirname + "/Pages/ServiceRequest.ejs");
         })
 
         app.get("/test", (req, res) => {
@@ -60,6 +64,8 @@ client.connect(dbaccessurl, function (err, db) {
                 Username: "Alameer"
             })
         })
+
+
     }
 });
 
