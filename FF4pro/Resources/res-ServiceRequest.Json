@@ -50,5 +50,121 @@
     "Email": {
         "en": "E-mail",
         "ar": "البريد الالكتروني"
+    },
+    "Phone1": {
+        "en": "Phone 1",
+        "ar": "الهاتف 1"
+    },
+    "Phone2": {
+        "en": "Phone 2",
+        "ar": "الهاتف 2"
+    },
+    "Address": {
+        "en": "Address",
+        "ar": "العنوان"
+    },
+    "Locationtomeet": {
+        "en": "Location to meet",
+        "ar": "تحديد مكان للقاء"
+    },
+    "EstimatePrice": {
+        "en": "Estimate Price",
+        "ar": "السعر المتوقع"
+    },
+    "Estimatetime": {
+        "en": "Estimate time",
+        "ar": "الوقت المتوقع للتسليم"
+    },
+    "BusinessScope": {
+        "en": "Business Scope",
+        "ar": "نوع العمل"
+    },
+    "SelectDDL": {
+        "en": "Select",
+        "ar": "اختار نوع العمل "
+    },
+    "AerospaceCompany": {
+        "en": "Aerospace Company",
+        "ar": "شركة طيران"
+    },
+    "CargoFreightCompany": {
+        "en": "Cargo & Freight Company",
+        "ar": "شركة شحن"
+    },
+    "ChemicalCompany": {
+        "en": "Chemical Company",
+        "ar": "شركة مواد كيميائية"
+    },
+    "Education": {
+        "en": "Education",
+        "ar": "التعليم"
+    },
+    "ComputerCompany": {
+        "en": "Computer Company",
+        "ar": "شركة حاسب آلي"
+    },
+    "Sport": {
+        "en": "Sport",
+        "ar": "رياضة"
+    },
+    "GovernmentOrganization": {
+        "en": "Government Organization",
+        "ar": "منظمة حكومية"
+    },
+    "Health": {
+        "en": "Health",
+        "ar": "صحة"
+    },
+    "InsuranceCompany": {
+        "en": "Insurance Company",
+        "ar": "شركة تأمين"
+    },
+    "MediaCompany": {
+        "en": "Media/News Company",
+        "ar": "شركة دعاية واعلان"
+    },
+    "TravelCompany": {
+        "en": "Travel Company",
+        "ar": "شركة سفريات"
+    },
+    "Other": {
+        "en": "Other",
+        "ar": " اخرى"
+    },
+    "SoftwareType": {
+        "en": "Software Type:",
+        "ar": " نوع التطبيق المطلوب"
+    },
+    "DesktopApplication": {
+        "en": "Desktop Application",
+        "ar": "تطبيقات سطح المكتب"
+    },
+    "MobileApplication" :{
+        "en" : "Mobile Application",
+        "ar" : "تطبيقات المحمول"
+    },
+    "Website" : {
+        "en" : "Website" , 
+        "ar" : "موقع"
+    },
+    "API" :{
+        "en" : "API" ,
+        "ar" : "API"
+    },
+    "Timetomeet" :{
+        "en" : "Time to meet" ,
+        "ar" : "وقت المقابلة "
+    },
+    "Urgentlyneeded" :{
+        "en" : "Urgently needed" ,
+        "ar" : " على وجه السرعه "
+    },
+    "Description" :{
+        "en" : "Description" ,
+        "ar" : "وصف مختصر للمشروع"
+    },
+    "Submitlabel" :{
+        "en" : "Order Now" ,
+        "ar" : "اطلب الآن"
     }
 }

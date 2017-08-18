@@ -4,7 +4,7 @@ $(function () {
         if  ($(this).attr("langdete") == "en") {
             window.location.replace("http://localhost:1337/ServiceRequest?lang=ar");
         }
-        else if (CurrentLang = $(this).attr("langdete") == "ar") {
+        else if ($(this).attr("langdete") == "ar") {
             window.location.replace("http://localhost:1337/ServiceRequest?lang=en");
         }
     });

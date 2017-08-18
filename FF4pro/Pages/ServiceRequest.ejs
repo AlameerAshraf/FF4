@@ -2,34 +2,37 @@
 <html lang="en">
 
 <head>
+    <%
+        Translate = function(value) {
+            if(typeof value != 'undefined'){%><%=value%><%}else{%> return "value";<%}
+        }
+        %>
+                    <meta charset="utf-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <meta name="description" content="">
+                    <meta name="author" content="FF4">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="FF4">
+                    <title>Fantastic Four - FF4</title>
 
-    <title>Fantastic Four - FF4</title>
+                    <!-- Bootstrap Core CSS -->
+                    <link rel="shortcut icon" href="img/network.png" type="image/x-icon">
+                    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+                    <link rel="stylesheet" href="eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+                    <!-- Custom Fonts -->
+                    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+                    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+                    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+                    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+                    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="shortcut icon" href="img/network.png" type="image/x-icon">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"
-    />
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+                    <!-- Theme CSS -->
+                    <link href="../css/agency.css" rel="stylesheet">
+                    <link href="../flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
 
-    <!-- Theme CSS -->
-    <link href="../css/agency.css" rel="stylesheet">
-    <link href="../flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+                    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+                    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+                    <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
     <![endif]-->
@@ -54,24 +57,40 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"><%if(typeof Home != 'undefined'){%> <%=Home%> <%}else{%> Home <%}%><span class="sr-only">(current)</span></a></li>
+                    <li class="active">
+                        <a href="#">
+                            <%= Translate(Home) %><span class="sr-only">(current)</span></a>
+                    </li>
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="<%if(typeof Jobcode != 'undefined'){%> <%=Jobcode%> <%}else{%> Job code <%}%>">
                     </div>
-                    <button type="submit" class="btn btn-default"><%if(typeof CheckProjectState != 'undefined'){%> <%=CheckProjectState%> <%}else{%> Check Project State <%}%></button>
+                    <button type="submit" class="btn btn-default"><%= Translate(CheckProjectState) %></button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%if(typeof GetMoreOptions != 'undefined'){%> <%=GetMoreOptions%> <%}else{%> Get More Options <%}%> <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <%= Translate(GetMoreOptions) %> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><%if(typeof RequestaReadyApp != 'undefined'){%> <%=RequestaReadyApp%> <%}else{%> RequestaReadyApp <%}%></a></li>
-                            <li><a href="#"><%if(typeof GetLicensefromourcustomcollection != 'undefined'){%> <%=GetLicensefromourcustomcollection%> <%}else{%> Get License from our custom collection <%}%></a></li>
-                            <li><a href="#"><%if(typeof RateYourJob != 'undefined'){%> <%=RateYourJob%> <%}else{%> Rate Your Job <%}%></a></li>
+                            <li>
+                                <a href="#">
+                                    <%= Translate(RequestaReadyApp) %>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <%= Translate(GetLicensefromourcustomcollection) %>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <%= Translate(RateYourJob) %>
+                                </a>
+                            </li>
                         </ul>
                     </li>
-                    <li><a href="javascript:void(0)" id="langdete" langdete="<%if(typeof langdete != 'undefined'){%><%=langdete%><%}else{%>en<%}%>" > <span class="<%if(typeof Image != 'undefined'){%> <%=Image%> <%}else{%> flag-icon flag-icon-um <%}%>"></span><%if(typeof lang != 'undefined'){%> <%=lang%> <%}else{%> Language <%}%></a></li>
+                    <li><a href="javascript:void(0)" id="langdete" langdete="<%= Translate(langdete)%>"> <span class="<%if(typeof Image != 'undefined'){%> <%=Image%> <%}else{%> flag-icon flag-icon-um <%}%>"></span><%if(typeof lang != 'undefined'){%> <%=lang%> <%}else{%> Language <%}%></a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -79,25 +98,27 @@
         <!-- /.container-fluid -->
     </nav>
 
-
+<form >
     <div class="container col-sm-12">
         <div class="panel panel-default">
-            <div class="panel-heading"><%if(typeof ApplicationData != 'undefined'){%> <%=ApplicationData%> <%}else{%> Application Data <%}%></div>
+            <div class="panel-heading">
+                <%= Translate(ApplicationData) %>
+            </div>
             <div class="panel-body">
                 <div class="col-sm-6">
                     <div class="col-sm-4 ">
-                        <label><%if(typeof Name != 'undefined'){%> <%=Name%> <%}else{%> Name <%}%></label>
+                        <label><%= Translate(Name) %></label>
                     </div>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="name" required>
                     </div>
                 </div>
                 <div class="col-sm-6 ">
                     <div class="col-sm-4 ">
-                        <label><%if(typeof Email != 'undefined'){%> <%=Email%> <%}else{%> E-mail <%}%></label>
+                        <label> <%= Translate(Email) %> </label>
                     </div>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="email" required>
                     </div>
                 </div>
 
@@ -107,18 +128,18 @@
 
                 <div class="col-sm-6">
                     <div class="col-sm-4 ">
-                        <label>Phone 1:</label>
+                        <label> <%= Translate(Phone1) %></label>
                     </div>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="phone1" required >
                     </div>
                 </div>
                 <div class="col-sm-6 ">
                     <div class="col-sm-4 ">
-                        <label>Phone 2:</label>
+                        <label> <%= Translate(Phone2) %> </label>
                     </div>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="phone2" required>
                     </div>
                 </div>
 
@@ -128,18 +149,18 @@
 
                 <div class="col-sm-6">
                     <div class="col-sm-4 ">
-                        <label>Address:</label>
+                        <label><%= Translate(Address) %></label>
                     </div>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="address" required>
                     </div>
                 </div>
                 <div class="col-sm-6 ">
                     <div class="col-sm-4 ">
-                        <label>Location to meet:</label>
+                        <label><%= Translate(Locationtomeet) %></label>
                     </div>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="location" required>
                     </div>
                 </div>
 
@@ -150,19 +171,19 @@
 
                 <div class="col-sm-6 ">
                     <div class="col-sm-4 ">
-                        <label>Estimate Price:</label>
+                        <label><%= Translate(EstimatePrice) %></label>
                     </div>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="price" required>
                     </div>
                 </div>
                 <div class='col-sm-6'>
                     <div class="col-sm-4 ">
-                        <label>Estimate time:</label>
+                        <label><%= Translate(Estimatetime) %></label>
                     </div>
                     <div class="form-group col-sm-8">
                         <div class='input-group date' name='datePicker'>
-                            <input type='text' class="form-control" />
+                            <input type='text' class="form-control" name="datedeliver" required />
                             <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -176,37 +197,37 @@
 
                 <div class="col-sm-6">
                     <div class="col-sm-4 ">
-                        <label>Business Scope:</label>
+                        <label><%= Translate(BusinessScope) %></label>
                     </div>
                     <div class="col-sm-8">
-                        <select class="form-control" name="BusinessScopeDdl">
-                            <option value="">--Select Scope--</option>
-                            <option value="Aerospace">Aerospace Company</option>
-                            <option value="Cargo">Cargo & Freight Company</option>
-                            <option value="Chemical">Chemical Company</option>
-                            <option value="Education">Education</option>
-                            <option value="Computer">Computer Company</option>
-                            <option value="Sport">Sport</option>
-                            <option value="Government">Government Organization</option>
-                            <option value="Health">Health/Beauty</option>
-                            <option value="Insurance">Insurance Company</option>
-                            <option value="Media">Media/News Company</option>
-                            <option value="Travel">Travel Company</option>
-                            <option value="Other">Other</option>
+                        <select class="form-control" name="BusinessScopeDdl" required>
+                            <option value="">-- <%= Translate(SelectDDL) %> --</option>
+                            <option value="Aerospace"><%= Translate(AerospaceCompany) %></option>
+                            <option value="Cargo"><%= Translate(CargoFreightCompany) %></option>
+                            <option value="Chemical"><%= Translate(ChemicalCompany) %></option>
+                            <option value="Education"><%= Translate(Education) %></option>
+                            <option value="Computer"><%= Translate(ComputerCompany) %></option>
+                            <option value="Sport"><%= Translate(Sport) %></option>
+                            <option value="Government"><%= Translate(GovernmentOrganization) %></option>
+                            <option value="Health"><%= Translate(Health) %></option>
+                            <option value="Insurance"><%= Translate(InsuranceCompany) %></option>
+                            <option value="Media"><%= Translate(MediaCompany) %></option>
+                            <option value="Travel"><%= Translate(TravelCompany) %></option>
+                            <option value="Other"><%= Translate(Other) %></option>
                         </select>
                     </div>
                 </div>
                 <div class="col-sm-6 ">
                     <div class="col-sm-4 ">
-                        <label>Software Type:</label>
+                        <label><%= Translate(SoftwareType) %></label>
                     </div>
                     <div class="col-sm-8">
-                        <select class="form-control" name="SoftwareTypeDdl">
-                            <option value="" class="text-center">--Select Project--</option>
-                            <option value="Desktop">Desktop Application</option>
-                            <option value="Mobile">Mobile Application</option>
-                            <option value="Website">Website</option>
-                            <option value="Api">API</option>
+                        <select class="form-control" name="SoftwareTypeDdl" required>
+                            <option value="" class="text-center">-- <%= Translate(SelectDDL) %> --</option>
+                            <option value="Desktop"><%= Translate(DesktopApplication) %></option>
+                            <option value="Mobile"><%= Translate(MobileApplication) %></option>
+                            <option value="Website"><%= Translate(Website) %></option>
+                            <option value="Api"><%= Translate(API) %></option>
                         </select>
                     </div>
                 </div>
@@ -218,11 +239,11 @@
 
                 <div class='col-sm-6'>
                     <div class="col-sm-4 ">
-                        <label>Time to meet:</label>
+                        <label><%= Translate(Timetomeet) %></label>
                     </div>
                     <div class="form-group col-sm-8">
                         <div class='input-group date' name='datePicker'>
-                            <input type='text' class="form-control" />
+                            <input type='text' class="form-control" name="timetomeet" required />
                             <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -231,10 +252,10 @@
                 </div>
                 <div class="col-sm-6 ">
                     <div class="col-sm-4 ">
-                        <label>Urgently needed</label>
+                        <label><%= Translate(Urgentlyneeded) %></label>
                     </div>
                     <div class="col-sm-8">
-                        <input type="checkbox">
+                        <input type="checkbox" name="urgent" required>
                     </div>
                 </div>
 
@@ -243,11 +264,11 @@
 
                 <div class="col-sm-12 ">
                     <div class="col-sm-4 ">
-                        <label>Description :</label>
+                        <label><%= Translate(Description) %></label>
                     </div>
                     <br>
                     <div class="col-sm-12">
-                        <textarea class="form-control" rows="6"></textarea>
+                        <textarea class="form-control" rows="6" name="desc" required></textarea>
                     </div>
                 </div>
 
@@ -260,11 +281,10 @@
                     <br>
                     <br>
                     <div class="text-center">
-                        <input type="submit" class="btn btn-success " />
+                        <input type="submit" class="btn btn-success " value="<%= Translate(Submitlabel) %>" />
                     </div>
                 </div>
-
-
+            </form>
             </div>
         </div>
     </div>
@@ -283,8 +303,7 @@
             $(function () {
                 $("[name='datePicker']").datetimepicker();
             });
-    });
-
+        });
     </script>
 
 

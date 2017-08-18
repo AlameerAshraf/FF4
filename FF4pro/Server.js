@@ -6,6 +6,7 @@ var path = require('path');
 var app = express();
 var localtunnel = require('localtunnel');
 var BodyParser = require('body-parser');
+var fs  = require('fs');
 var MailHandler = require('./self_modules/SendMail.js');
 var ResourceControl = require('./self_modules/ResourceControl.js');
 
@@ -28,11 +29,12 @@ client.connect(dbaccessurl, function (err, db) {
         console.log("Error Happend in db");
     }
     else {
-        // var tunnel = localtunnel(1337, function (err, tunnel) {
-        //     if (!err) {
-        //         console.log(tunnel.url);
-        //     }
-        // });
+        var tunnel = localtunnel(1337, function (err, tunnel) {
+            if (!err) {
+                console.log(tunnel.url);
+            }
+            console.log(err);
+        });
 
 
 
@@ -80,7 +82,9 @@ client.connect(dbaccessurl, function (err, db) {
 });
 
 
+
 app.use(express.static("./Static"));
 app.use(express.static("./Scripts"));
 app.use(express.static("./bower_components"));
+
 app.listen(1337);
