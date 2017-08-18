@@ -1,0 +1,14 @@
+{
+    "Welcome" : {
+        "en" : "Welcome",
+        "ar" : "مرحباً"
+    },
+    "UserName" : {
+        "en" : "UserName",
+        "ar" : "اسم المستخدم"
+    },
+    "Message" : {
+        "en" : "Message",
+        "ar" : "الرسالة"
+    }
+}

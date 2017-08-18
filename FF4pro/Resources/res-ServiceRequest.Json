@@ -1,0 +1,26 @@
+{
+    "Image" :{
+        "en" : "flag-icon flag-icon-um",
+        "ar" : "flag-icon flag-icon-eg"
+    },
+    "Home": {
+        "en": "Home",
+        "ar": "الرئيسية"
+    },
+    "GetMoreOptions": {
+        "en": "Get More Options",
+        "ar": "احصل على المزيد"
+    },
+    "RequestaReadyApp": {
+        "en": "Request a Ready App",
+        "ar": "اطلب تطبيق جاهز"
+    },
+    "GetLicensefromourcustomcollection": {
+        "en": "Get License from our custom collection",
+        "ar": "اشترك في برمجنا الجاهزة"
+    },
+    "RateYourJob": {
+        "en": "Rate Your Job",
+        "ar": "قيم تجربتك معنا"
+    }
+}

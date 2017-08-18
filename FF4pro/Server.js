@@ -7,6 +7,7 @@ var app = express();
 var localtunnel = require('localtunnel');
 var BodyParser = require('body-parser');
 var MailHandler = require('./self_modules/SendMail.js');
+var ResourceControl = require('./self_modules/ResourceControl.js');
 
 var client = mongodb.MongoClient;
 var dbaccessurl = "mongodb://127.0.0.1:27017/ff4";
@@ -27,15 +28,19 @@ client.connect(dbaccessurl, function (err, db) {
         console.log("Error Happend in db");
     }
     else {
-        var tunnel = localtunnel(1337, function (err, tunnel) {
-            if (!err) {
-                console.log(tunnel.url);
-            }
+        // var tunnel = localtunnel(1337, function (err, tunnel) {
+        //     if (!err) {
+        //         console.log(tunnel.url);
+        //     }
+        // });
+
+
+
+        app.get(["/", "/Index", "/Home"], function (req, res) {
+            res.render(__dirname + "/Pages/index.ejs");
         });
 
-        app.get(["/","/Index","/Home"], function (req, res) {
-            res.render(__dirname + "/Pages/index.ejs");
-        })
+
 
         app.post("/Contactus", (req, res) => {
             var maildetailstransfer = {
@@ -52,19 +57,24 @@ client.connect(dbaccessurl, function (err, db) {
             }
 
             MailHandler.NotifyViaMail(maildetailstransfer);
-        })
+        });
 
-        app.get("/ServiceRequest", (req, res) => {
-            res.render(__dirname + "/Pages/ServiceRequest.ejs");
-        })
 
-        app.get("/test", (req, res) => {
-            MailHandler.test();
-            res.render(__dirname + "/Pages/Templates/Email.ejs", {
-                Username: "Alameer"
+
+
+        app.get(new RegExp("ServiceRequest(\\.(?:htm|html))?(\\?.*)?$"), (req, res) => {
+            
+            var queryData = url.parse(req.url, true).query;
+            var lang = queryData.lang; 
+            var RequestedPage = "ServiceRequest"; 
+
+            var LoadedResources = ResourceControl.LoadResources(lang , RequestedPage); 
+
+            LoadedResources.then((result) => {
+                 res.render(__dirname + "/Pages/ServiceRequest",result);
             })
+           
         })
-
 
     }
 });
@@ -72,4 +82,5 @@ client.connect(dbaccessurl, function (err, db) {
 
 app.use(express.static("./Static"));
 app.use(express.static("./Scripts"));
+app.use(express.static("./bower_components"));
 app.listen(1337);
