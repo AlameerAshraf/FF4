@@ -71,7 +71,7 @@
                             <li><a href="#"><%if(typeof RateYourJob != 'undefined'){%> <%=RateYourJob%> <%}else{%> Rate Your Job <%}%></a></li>
                         </ul>
                     </li>
-                    <li><a href="#"> <span class="<%if(typeof Image != 'undefined'){%> <%=Image%> <%}else{%> flag-icon flag-icon-um <%}%>"></span> English</a></li>
+                    <li><a href="#"> <span class="<%if(typeof Image != 'undefined'){%> <%=Image%> <%}else{%> flag-icon flag-icon-um <%}%>"></span><%if(typeof lang != 'undefined'){%> <%=lang%> <%}else{%> Language <%}%></a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

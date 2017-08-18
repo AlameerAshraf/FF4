@@ -3,6 +3,10 @@
         "en" : "flag-icon flag-icon-um",
         "ar" : "flag-icon flag-icon-eg"
     },
+    "lang" :{
+        "en" : "English",
+        "ar" : "العربية"
+    },
     "Home": {
         "en": "Home",
         "ar": "الرئيسية"
