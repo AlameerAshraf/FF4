@@ -58,9 +58,9 @@
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Job Code">
+                        <input type="text" class="form-control" placeholder="<%if(typeof Jobcode != 'undefined'){%> <%=Jobcode%> <%}else{%> Job code <%}%>">
                     </div>
-                    <button type="submit" class="btn btn-default">Check Project State</button>
+                    <button type="submit" class="btn btn-default"><%if(typeof CheckProjectState != 'undefined'){%> <%=CheckProjectState%> <%}else{%> Check Project State <%}%></button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -71,7 +71,7 @@
                             <li><a href="#"><%if(typeof RateYourJob != 'undefined'){%> <%=RateYourJob%> <%}else{%> Rate Your Job <%}%></a></li>
                         </ul>
                     </li>
-                    <li><a href="#"> <span class="<%if(typeof Image != 'undefined'){%> <%=Image%> <%}else{%> flag-icon flag-icon-um <%}%>"></span><%if(typeof lang != 'undefined'){%> <%=lang%> <%}else{%> Language <%}%></a></li>
+                    <li><a href="javascript:void(0)" id="langdete" langdete="<%if(typeof langdete != 'undefined'){%><%=langdete%><%}else{%>en<%}%>" > <span class="<%if(typeof Image != 'undefined'){%> <%=Image%> <%}else{%> flag-icon flag-icon-um <%}%>"></span><%if(typeof lang != 'undefined'){%> <%=lang%> <%}else{%> Language <%}%></a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -82,11 +82,11 @@
 
     <div class="container col-sm-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Application Data</div>
+            <div class="panel-heading"><%if(typeof ApplicationData != 'undefined'){%> <%=ApplicationData%> <%}else{%> Application Data <%}%></div>
             <div class="panel-body">
                 <div class="col-sm-6">
                     <div class="col-sm-4 ">
-                        <label>Name:</label>
+                        <label><%if(typeof Name != 'undefined'){%> <%=Name%> <%}else{%> Name <%}%></label>
                     </div>
                     <div class="col-sm-8">
                         <input type="text" class="form-control">
@@ -94,7 +94,7 @@
                 </div>
                 <div class="col-sm-6 ">
                     <div class="col-sm-4 ">
-                        <label>E-mail:</label>
+                        <label><%if(typeof Email != 'undefined'){%> <%=Email%> <%}else{%> E-mail <%}%></label>
                     </div>
                     <div class="col-sm-8">
                         <input type="text" class="form-control">
@@ -275,6 +275,7 @@
     <script type="text/javascript" src="eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./js/LangDetector.js"></script>
 
 
     <script>
@@ -282,7 +283,8 @@
             $(function () {
                 $("[name='datePicker']").datetimepicker();
             });
-        })
+    });
+
     </script>
 
 

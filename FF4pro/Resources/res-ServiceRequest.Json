@@ -1,11 +1,15 @@
 {
-    "Image" :{
-        "en" : "flag-icon flag-icon-um",
-        "ar" : "flag-icon flag-icon-eg"
+    "Image": {
+        "en": "flag-icon flag-icon-um",
+        "ar": "flag-icon flag-icon-eg"
     },
-    "lang" :{
-        "en" : "English",
-        "ar" : "العربية"
+    "lang": {
+        "en": "English",
+        "ar": "العربية"
+    },
+    "langdete": {
+        "en": "en",
+        "ar": "ar"
     },
     "Home": {
         "en": "Home",
@@ -26,5 +30,25 @@
     "RateYourJob": {
         "en": "Rate Your Job",
         "ar": "قيم تجربتك معنا"
+    },
+    "Jobcode": {
+        "en": "Job Code",
+        "ar": "رقم الطلب"
+    },
+    "CheckProjectState": {
+        "en": "Check Project State",
+        "ar": "تابع حالة طلبك"
+    },
+    "ApplicationData": {
+        "en": "Application Data",
+        "ar": "معلومات عن البرنامج المطلوب"
+    },
+    "Name": {
+        "en": "Name",
+        "ar": "الاسم"
+    },
+    "Email": {
+        "en": "E-mail",
+        "ar": "البريد الالكتروني"
     }
 }
