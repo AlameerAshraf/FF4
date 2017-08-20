@@ -30,9 +30,12 @@ exported.NotifyViaMail = function (IncomingObject) {
         FirstMessage : IncomingObject.FirstMessage ,
         ButtonDetection : IncomingObject.ButtonDetection , 
         ButtonMessage : (IncomingObject.ButtonMessage == null ? "" : IncomingObject.ButtonMessage)  ,
+        ButtonLink : IncomingObject.ButtonLink,
         Link : IncomingObject.Link,
         LinkMessage : IncomingObject.LinkMessage   ,
-        FooterMessage : IncomingObject.FooterMessage
+        FooterMessage : IncomingObject.FooterMessage,
+        Subject : IncomingObject.Subject,
+        to : IncomingObject.To
     }
     var MailPromise = new Promise(function (resolve, reject) {
         tempmail.render(maildetails, function (err, result) {
@@ -48,8 +51,8 @@ exported.NotifyViaMail = function (IncomingObject) {
     MailPromise.then(function (result) {
         var mailoptions = {
             from: IncomingObject.name,
-            to: "alameerelnagar94@gmail.com",
-            subject: "Clients Reviwes Mail From IntegratoCorp. ",
+            to: IncomingObject.To ,
+            subject: IncomingObject.Subject,
             text: "",
             html: result.html
         };
